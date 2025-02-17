@@ -50,7 +50,8 @@ public class Configuration implements ClonableObject<Configuration> {
 
     @Override
     public Configuration cloneObject() {
-        // Shallow Copy
+        // Shallow Copy - Just copying the references
+        // Works: As Primitive Wrapper Classes are immutable in Java
         return new Configuration(
             this.themeColor,
             this.autoSave,
