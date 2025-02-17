@@ -1,6 +1,7 @@
 package com.assignment.question;
 
-public class Invoice {
+// Part 1: Implement ClonableObject interface
+public class Invoice implements ClonableObject<Invoice> {
     private Long invoiceId;
     private String customerName;
     private Double amount;
@@ -33,5 +34,17 @@ public class Invoice {
 
     public InvoiceType getType() {
         return type;
+    }
+
+    @Override
+    public Invoice cloneObject() {
+        // Shallow Copy - Just copying the references of the attrs of the current object
+        // Works: Primitive Wrapper Classes are immutable in Java
+        return new Invoice(
+            this.invoiceId,
+            this.customerName,
+            this.amount,
+            this.paymentMethod,
+            this.type);
     }
 }
