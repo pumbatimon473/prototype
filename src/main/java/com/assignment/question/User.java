@@ -1,6 +1,7 @@
 package com.assignment.question;
 
-public class User {
+// Part 1: Implement Clonable interface
+public class User implements ClonableObject<User> {
     private long userId;
 
     private String username;
@@ -40,6 +41,19 @@ public class User {
 
     public UserType getType() {
         return type;
+    }
+
+    @Override
+    public User cloneObject() {
+        // Shallow Copy - Just copying the references of the attrs
+        // Works: Primitive Wrapper Classes are immutable in Java
+        return new User(
+            this.userId,
+            this.username,
+            this.email,
+            this.displayName,
+            this.age,
+            this.type);
     }
 
 }
